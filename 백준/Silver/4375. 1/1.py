@@ -1,9 +1,11 @@
 while True:
     try:
         n = int(input())
-        result = '1' * len(str(n))
-        while int(result) % n != 0:
-            result += '1'
-        print(len(result))
+        num = 1
+        result = 1
+        while num % n != 0:
+            num = num * 10 + 1
+            result += 1
+        print(result)
     except:
         break
