@@ -2,21 +2,17 @@
 
 int a,c;
 
-int recursive(int n) {
-    if(n == 1) {
-        return a;
-    }
-    long long half = recursive(n/2);
-    if(n % 2 == 0) {
-        return half * half % c;
-    }
-    return half * half % c * a % c;
+long long cal(int b) {
+    if(b == 1) return a % c;
+    long long half = cal(b/2);
+    long long result = half * half % c;
+    if(b % 2 == 1) return result * a % c;
+    return result;
 }
 
 int main() {
     int b;
     scanf("%d %d %d", &a, &b, &c);
-    a %= c;
-    printf("%d\n", recursive(b));
+    printf("%lld\n", cal(b));
     return 0;
 }
